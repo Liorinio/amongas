@@ -1,12 +1,10 @@
-CREATE SCHEMA IF NOT EXISTS oltp;
+create schema oltp;
 
-CREATE TABLE IF NOT EXISTS oltp.user_transactions
-(
-    id INT
-    db_name VARCHAR
-    status VARCHAR
-    username VARCHAR
-    creation_time TIMESTAMP
-)
-
+create table oltp.deployments (
+    id integer not null
+    db_name varchar not null
+    status varchar not null
+    username varchar not null
+    creation_time timestamp without time zone not null default (current_timestamp at time zone 'utc')
+);
 
