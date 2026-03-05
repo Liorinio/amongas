@@ -33,8 +33,8 @@ services:
   app:
     restart: unless-stopped
     build:
-      context: .
-      dockerfile: Dockerfile_app
+      context: ..
+      dockerfile: ../Dockerfile_app
     volumes:
       - .:/postgres_python
     depends_on:

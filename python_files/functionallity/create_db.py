@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from pymongo import MongoClient
-from postgres_db_model import Deployment
+from python_files.postgres_db_model import Deployment
 
 MONGO_URL = "mongodb://localhost:27017"
 mongo_client = MongoClient(MONGO_URL)

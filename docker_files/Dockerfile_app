@@ -2,7 +2,7 @@ FROM python:3.14
 
 RUN apt-get update
 
-COPY . /postgres_python
+COPY .. /postgres_python
 
 WORKDIR /postgres_python
 RUN python -m pip install --upgrade pip
