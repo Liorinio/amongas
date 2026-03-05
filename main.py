@@ -1,10 +1,16 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, status
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, Session
+from pymongo import MongoClient
+from postgres_db_model import Base, Deployment
+from schemas import DeploymentCreate
+from fastapi import Depends
 
 app = FastAPI()
 
 @app.get("/deployments/:<deployment_id>")
 def get_deployment_properties():
-    ...
+    create_deployment_service()
 
 @app.post("/deployments")
 def create_db():

@@ -6,7 +6,7 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_DB: oltp_db
+      POSTGRES_DB: amongas_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
