@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from schemas import DeploymentCreate
 from functionallity.create_db import create_deployment_service
 from getting_db import get_db
+from functionallity.get_details_via_id import get_deployment_service
 
 app = FastAPI()
 
@@ -16,8 +17,8 @@ def create_db(payload: DeploymentCreate, db: Session = Depends(get_db)):
         return {"id": str(deployment_id)}
 
 @app.get("/deployments/:<deployment_id>")
-def get_deployment_properties():
-    ...
+def get_deployment_properties(deployment_id):
+    get_deployment_service(deployment_id)
 
 @app.put("/deployments/:deployment_id")
 def update_deployment_name():
