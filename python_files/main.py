@@ -20,12 +20,19 @@ def create_db(payload: DeploymentCreate, db: Session = Depends(get_db)):
 
 @app.get("/deployments/:<deployment_id>")
 def get_deployment_properties(deployment_id):
-    get_deployment_service(deployment_id)
+    try:
+        details = get_deployment_service(deployment_id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    return {"details": details}
 
 @app.put("/deployments/:deployment_id")
 def update_deployment_name(deployment_id):
-    update_name(deployment_id)
-
+    try:
+        update_name(deployment_id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    raise HTTPException(status_code=200, detail="The update was successful")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
