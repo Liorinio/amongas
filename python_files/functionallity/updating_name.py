@@ -3,8 +3,9 @@ from typing import Optional
 from python_files.postgres_db_model import Deployment
 import psycopg2
 
-def get_deployment_service(deployment_id: UUID4) -> Optional[Deployment]:
-    query = f"SELECT db_name, status,creation_time FROM oltp.deployments WHERE id = '{str(deployment_id)};"
+
+def update_name(deployment_id: UUID4) -> Optional[Deployment]:
+    query = f"UPDATE db_name, status,creation_time FROM oltp.deployments WHERE id = '{str(deployment_id)};"
     connect_to_postgres(query)
 
 
@@ -15,6 +16,6 @@ def connect_to_postgres(query):
 
 
 def execute_select_query(cursor, query):
-    cursor.execute(query=query)
+    cursor.execute(query =query)
     record = cursor.fetchall()
     return record
