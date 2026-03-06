@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
 from python_files.schamas_and_models.schemas import DeploymentCreate
@@ -25,10 +26,6 @@ def get_deployment_properties(deployment_id):
 def update_deployment_name(deployment_id):
     update_name(deployment_id)
 
-@app.delete("/deployments/:<deployment_id>")
-def delete_db():
-    ...
 
-@app.get("/deployments/connection_string/:<deployment_id>")
-def get_connection_string():
-    ...
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)
