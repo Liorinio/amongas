@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
-from schemas import DeploymentCreate
+from python_files.schamas_and_models.schemas import DeploymentCreate
 from functionallity.create_db import create_deployment_service
 from getting_db import get_db
 from functionallity.get_details_via_id import get_deployment_service

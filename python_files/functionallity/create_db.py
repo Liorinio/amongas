@@ -1,7 +1,7 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
 from pymongo import MongoClient
-from python_files.postgres_db_model import Deployment
+from python_files.schamas_and_models.postgres_db_model import Deployment
 
 MONGO_URL = "mongodb://localhost:27017"
 mongo_client = MongoClient(MONGO_URL)
