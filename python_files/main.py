@@ -4,6 +4,7 @@ from python_files.schamas_and_models.schemas import DeploymentCreate
 from functionallity.create_db import create_deployment_service
 from getting_db import get_db
 from functionallity.get_details_via_id import get_deployment_service
+from functionallity.updating_name import update_name
 
 app = FastAPI()
 
@@ -21,8 +22,8 @@ def get_deployment_properties(deployment_id):
     get_deployment_service(deployment_id)
 
 @app.put("/deployments/:deployment_id")
-def update_deployment_name():
-    ...
+def update_deployment_name(deployment_id):
+    update_name(deployment_id)
 
 @app.delete("/deployments/:<deployment_id>")
 def delete_db():
